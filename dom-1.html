@@ -3,7 +3,16 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
 	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
-	
+	<style tyle="text/css">
+		body {
+			padding:10px 20px;
+			line-height:1.5em;
+		}
+		p{
+			margin-top:1em;
+			text-indent:2em
+		}
+	</style>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -16,6 +25,10 @@
 					return 'wikilink-' + index;
 				}
 			});
+		});
+		$(document).ready(function(){
+			$('<a href="#top">back to top</a>').insertAfter('div.chapter p');
+			$('<a id="top"></a>').prependTo('body');
 		});
 	</script>
 </head>
