@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
-	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css"> -->
 	<style tyle="text/css">
 		body {
 			padding:10px 20px;
@@ -11,6 +11,14 @@
 		p{
 			margin-top:1em;
 			text-indent:2em
+		}
+		.para {
+			position:relative;
+			display:block;
+			
+			width:50px;
+			height:50px;
+			border:solid 1px;
 		}
 	</style>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
@@ -26,9 +34,20 @@
 				}
 			});
 		});
+		
+		// 增加"back to top"按钮
 		$(document).ready(function(){
 			$('<a href="#top">back to top</a>').insertAfter('div.chapter p');
 			$('<a id="top"></a>').prependTo('body');
+		});
+		
+		// “剪切”strong元素，“粘贴”到body“内部的尾部”
+		$(document).ready(function(){
+			$('body').after($('strong'));
+		});
+		
+		$(document).ready(function(){
+			$('#a_block').find('p').html('<div id="d_born" style="width:20px;height:20px;background-color:#234;border:solid 1px;float:left;text-indent:0;">z.6</div>').end();
 		});
 	</script>
 </head>
@@ -64,9 +83,27 @@
 			<strong>one more side</strong> than his father</span>, so
 			that each generation shall rise (as a rule) one step in
 			the scale of development and nobility. Thus the son of a Square is a Pentagon; the son of a Pentagon, a Hexagon;
-			and so on.
+			and so on.<strong>fuck here</strong>
 		</p>
 		<!-- code continues -->
 	</div>
+	<div id="test">
+		<div class="para">1</div>
+		<div class="para">1</div>
+		<div class="para">1</div>
+		<div class="para">1</div>
+		<p>1.1</p>
+		<p>
+			<div id="a_block" style="width:100px;height:100px;background-color:#567;">
+				<p>2.1</p>
+				<div id="son">2</div>
+			</div>
+		</p>
+	</div>
 </body>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#son').parent('p').css('background-color', '#345');
+});
+</script>
 </html>
